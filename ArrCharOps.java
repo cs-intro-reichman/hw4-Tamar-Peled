@@ -2,6 +2,15 @@
  *  The library also features a string comparison method. */
 public class ArrCharOps {
     public static void main(String[] args) {
+
+        //int index = Integer.parseInt(args[2]);
+        char ch = args [1].charAt(0);
+        char [] array = args [0].toCharArray();
+        //char [] array2 = args [1].toCharArray();
+
+
+        System.out.println(lastIndexOf(array, ch)+ "Look");
+        
         String str = "clearly";
         char[] arr1 = {'c','l','e','a','r','l','y'};
         char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
@@ -36,30 +45,61 @@ public class ArrCharOps {
     /** Returns the char value at the specified index. Assume that the array is non-empty.
      */
     public static char charAt(char[] arr, int index) {
-        // Replace the following statement with your code
-        return 0;
+         char charValue = arr [index];
+        
+        return charValue;
     }
 
     /** If the two arrays have the same value in every index, 
      *  returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
-        // Replace the following statement with your code
-        return false;
+        if (arr1.length != arr2.length){
+            return false;
+        } 
+        for (int i = 0; i < arr1.length; i++){
+            if (charAt(arr1, i) != charAt(arr2, i)){
+                return false;
+            } 
+
+        }
+            
+
+        return true;
     }
 
     /** Returns the index within the given array of the first occurrence of the given character.
      *  If no such character is found, returns -1.
      */
     public static int indexOf(char[] arr, char ch) {
-        // Replace the following statement with your code
+        int index = 0;
+        for (int i = 0; i < arr.length; i++){
+            if (ch == charAt(arr, i)){
+                index = i;
+                return index;
+            }    
+                
+        }
         return -1;
     }
 
     /** Same as indexOf(char[], char), but starts the search in the given index.
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
-        // Replace the following statement with your code
+        int index = 0;
+        for (int i = fromIndex; i < arr.length; i++){
+            if (ch == charAt(arr, i)){
+                index = i;
+                return index;
+            }
+        }
+        for (int j = 0; j< (arr.length - fromIndex); j++ ){
+            if (ch == charAt(arr, j)){
+                index = j;
+                return index;
+            }
+        }
+        
         return -1;
     }
 
@@ -67,15 +107,38 @@ public class ArrCharOps {
      *  If no such character is found, returns -1.
      */
     public static int lastIndexOf(char[] arr, char ch) {
-        // Replace the following statement with your code
-        return -1;
+        int indexFromStart = -1;
+        int indexFromEnd = (arr.length -1);
+
+        for (int i = 0; i < arr.length; i++){
+            if (ch == charAt(arr, i)){
+                indexFromStart = i;
+            }
+        }
+            if (indexFromStart < 0){
+                return -1;
+            }
+        
+        for(int j = (arr.length - 1); j >= 0; j--){
+            if (ch == charAt(arr, j)){
+                indexFromEnd = j;
+            } 
+        
+        }
+            
+        
+        return indexFromEnd > indexFromStart ? indexFromEnd : indexFromStart;
     }
 
     /* Returns an array which is the concatanation of the two given arrays.
     */
     public static char[] concat(char[] arr1, char[] arr2) {
-        // Replace the following statement with your code
-        return null;
+        char [] concatanation = new char [arr1.length + arr2.length];
+        for (int i = 0; i < (arr2.length); i++){
+            
+        }
+
+        return null;    
     }
 
     /** Returns a new array that can be described as a sub-array of this array.
