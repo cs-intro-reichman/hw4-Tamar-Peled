@@ -4,12 +4,15 @@ public class ArrCharOps {
     public static void main(String[] args) {
 
         //int index = Integer.parseInt(args[2]);
-        char ch = args [1].charAt(0);
+        //char ch = args [1].charAt(0);
         char [] array = args [0].toCharArray();
-        //char [] array2 = args [1].toCharArray();
+        char [] array2 = args [1].toCharArray();
 
 
-        System.out.println(lastIndexOf(array, ch)+ "Look");
+        System.out.println(concat(array, array2)+ "Look");
+        System.out.println(array + "lookkkkk");
+        System.out.println(array2 + "looookkkkk");
+        
         
         String str = "clearly";
         char[] arr1 = {'c','l','e','a','r','l','y'};
@@ -132,13 +135,16 @@ public class ArrCharOps {
 
     /* Returns an array which is the concatanation of the two given arrays.
     */
-    public static char[] concat(char[] arr1, char[] arr2) {
+    public static char[] concat(char[] arr1, char[] arr2){
         char [] concatanation = new char [arr1.length + arr2.length];
-        for (int i = 0; i < (arr2.length); i++){
-            
+        for (int i = 0; i < arr1.length; i++){
+            concatanation [i] += charAt(arr1, i);   
+        }
+        for (int j = 0; j < arr2.length; j++){
+            concatanation [arr1.length + j] += charAt(arr2, j);
         }
 
-        return null;    
+        return concatanation;    
     }
 
     /** Returns a new array that can be described as a sub-array of this array.
@@ -147,8 +153,12 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        // Replace the following statement with your code
-        return null;
+        char [] subArray = new char[arr.length];
+        for (int i = beginIndex; i < endIndex; i++){
+            subArray [i] += charAt(arr, i);
+        }
+        
+        return subArray;
     }
 
      /** Returns a single integer that represents the given array. This integer is sometimes 
@@ -159,8 +169,14 @@ public class ArrCharOps {
      *  The hash value of an empty array is zero.
      */
     public static long hashCode(char[] arr) {
-        // Replace the following statement with your code
+        long hashCode = 0;
+        if (arr.length == 0){
         return 0;
+        }
+        for (int i = 0; i < arr.length; i++){
+        hashCode += arr[i]*7^(arr.length-(i+1));
+        }
+        return hashCode;
     }
 
     /**
@@ -189,7 +205,24 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        // Replace the following statement with your code
+        if (str1 == null || str2 == null ){
+            return -2;
+        }
+            int limit = str1.length() < str2.length() ? str1.length() : str2.length();
+
+            for (int i = 0; i < limit ; i++){
+                if (str1.charAt(i) != str2.charAt(i)) {
+                    return str1.charAt(i)< str2.length() ? -1 : 1;
+                }
+            }
+                if (str1.length() < str2.length()){
+                    return -1;
+                }else if (str2.length() < str1.length()){
+                    return 1;
+                }        
+        
         return 0;
     }
 }
+
+
