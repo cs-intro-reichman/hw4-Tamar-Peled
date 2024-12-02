@@ -96,7 +96,7 @@ public class ArrCharOps {
                 return index;
             }
         }
-        for (int j = 0; j< (arr.length - fromIndex); j++ ){
+        for (int j = 0; j< fromIndex; j++ ){
             if (ch == charAt(arr, j)){
                 index = j;
                 return index;
@@ -153,9 +153,10 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        char [] subArray = new char[arr.length];
+        char [] subArray = new char[endIndex - beginIndex];
         for (int i = beginIndex; i < endIndex; i++){
-            subArray [i] += charAt(arr, i);
+            subArray [i-beginIndex] += charAt(arr, i);
+            
         }
         
         return subArray;
@@ -215,12 +216,19 @@ public class ArrCharOps {
         if (str1 == null || str2 == null ){
             return -2;
         }
+        if (str1.length() == 0 && str2.length() == 0){
+            return 0;
+        }else if (str1.length() == 0){
+            return -1;
+        }else if(str2.length() == 0){
+            return 1;
+        }
             int limit = str1.length() < str2.length() ? str1.length() : str2.length();
 
             for (int i = 0; i < limit ; i++){
 
                 if (str1.charAt(i) != str2.charAt(i)) {
-                    return str1.charAt(i)< str2.length() ? -1 : 1;
+                    return str1.charAt(i)< str2.charAt(i) ? -1 : 1;
                 }
             }
                 if (str1.length() < str2.length()){
