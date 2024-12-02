@@ -26,7 +26,7 @@ public class Primes {
             }
             p++;
         }
-        for (int k = 0; k < isPrime.length; k++){
+        for (int k = 2; k < isPrime.length; k++){
             if (isPrime[k]){
                 count++;
             }
@@ -36,7 +36,7 @@ public class Primes {
         
         double precent = ((double)count / N) * 100;
 
-        System.out.println("There are " + count + " primes between 2 and " + N + ". (" + (int)(precent) + "% are primes)" );
+        System.out.println("There are " + count + " primes between 2 and " + N + " (" + (int)(precent) + "% are primes)" );
 
     }
 
