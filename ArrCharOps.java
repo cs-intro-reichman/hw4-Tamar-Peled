@@ -216,16 +216,10 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        if (str1 == null || str2 == null ){
+        if (str1.length() > str2.length()){
             return -2;
         }
-        if (str1.length() == 0 && str2.length() == 0){
-            return 0;
-        }else if (str1.length() == 0){
-            return -1;
-        }else if(str2.length() == 0){
-            return 1;
-        }
+       
             int limit = str1.length() < str2.length() ? str1.length() : str2.length();
 
             for (int i = 0; i < limit ; i++){
