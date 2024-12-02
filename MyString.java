@@ -34,7 +34,7 @@ public class MyString {
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2){
-        boolean contains = true;
+        
         str1 = lowerCase(str1);
         str2 = lowerCase(str2);
         int j = 0;
@@ -44,25 +44,23 @@ public class MyString {
             return false;
         }
         if (str2.length() == 0){
-            return false;
+            return true;
         }
         for (int i = 0; i < str1.length(); i++){
                 if (str1.charAt(i) == str2.charAt(j)){
                     j++;
-                    contains = true;
                     if (j == str2.length()) {
-                        break;
+                        return true;
                         
                     }
                 }else{
                     i-= j; 
                     j = 0;
-                    contains = false;
                 }
     
         }
 
-        return contains;
+        return false;
     
     }
 
