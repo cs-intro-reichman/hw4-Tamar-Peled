@@ -169,15 +169,22 @@ public class ArrCharOps {
      *  The hash value of an empty array is zero.
      */
     public static long hashCode(char[] arr) {
-        long hashCode = 0;
-        if (arr.length == 0){
-        return 0;
+            long hashCode = 0;
+            long powerOf7 = 1;
+        
+            if (arr.length == 0){
+                return 0;
+            }
+        
+            for (int i = arr.length - 1; i >= 0; i--) {
+                hashCode += arr[i] * powerOf7;
+                powerOf7 *= 7; 
+            }
+        
+            return hashCode;
         }
-        for (int i = 0; i < arr.length; i++){
-        hashCode += arr[i]*7^(arr.length-(i+1));
-        }
-        return hashCode;
-    }
+        
+    
 
     /**
      * Compares the two strings lexicographically.
@@ -211,8 +218,7 @@ public class ArrCharOps {
             int limit = str1.length() < str2.length() ? str1.length() : str2.length();
 
             for (int i = 0; i < limit ; i++){
-                str1 = str1.toLowerCase();
-                str2 = str2.toLowerCase();
+
                 if (str1.charAt(i) != str2.charAt(i)) {
                     return str1.charAt(i)< str2.length() ? -1 : 1;
                 }
