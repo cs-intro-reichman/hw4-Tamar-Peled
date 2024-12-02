@@ -33,35 +33,35 @@ public class MyString {
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
-    public static boolean contains(String str1, String str2) {
+    public static boolean contains(String str1, String str2){
         boolean contains = true;
         str1 = lowerCase(str1);
         str2 = lowerCase(str2);
-        int count = 0;
+        int j = 0;
         
 
-        String biggerStr = str1.length() > str2.length() ? str1 : str2;
-        String smallerStr = str1.length() <= str2.length() ? str1 : str2;
-
-        for (int i = 0; i < smallerStr.length(); i++){
-            char chFromSmaller = smallerStr.charAt(i);
-        
-        for (int j = 0; j < smallerStr.length(); j++){
-            if (chFromSmaller == biggerStr.charAt(j)){
-            count++;
-            }else{
-                contains = false;
-            }if (count == smallerStr.length()){
-                return contains;
-                
-            }
-                
-            }
-           
+        if (str2.length() > str1.length()){
+            return false;
+        }
+        for (int i = 0; i < str1.length(); i++){
+                if (str1.charAt(i) == str2.charAt(j)){
+                    j++;
+                    contains = true;
+                    if (j == str2.length()) {
+                        break;
+                        
+                    }
+                }else{
+                    i-= j; 
+                    j = 0;
+                    contains = false;
+                }
+    
         }
 
         return contains;
     
     }
-}
 
+    
+}
