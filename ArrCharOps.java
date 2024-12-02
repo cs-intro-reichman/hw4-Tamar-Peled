@@ -3,19 +3,9 @@
 public class ArrCharOps {
     public static void main(String[] args) {
 
-        //int index = Integer.parseInt(args[2]);
-        //char ch = args [0].charAt(0);
-        //int index = Integer.parseInt (args [1]);
-        //char [] array = args [0].toCharArray();
-        //char [] array2 = args [1].toCharArray()
-
-
-       
-        char[] arr = "hamburger".toCharArray();
-
-
-
         
+
+
         
         String str = "clearly";
         char[] arr1 = {'c','l','e','a','r','l','y'};
@@ -78,11 +68,10 @@ public class ArrCharOps {
      *  If no such character is found, returns -1.
      */
     public static int indexOf(char[] arr, char ch) {
-        int index = 0;
         for (int i = 0; i < arr.length; i++){
             if (ch == charAt(arr, i)){
-                index = i;
-                return index;
+        
+                return i;
             }    
                 
         }
@@ -92,7 +81,7 @@ public class ArrCharOps {
     /** Same as indexOf(char[], char), but starts the search in the given index.
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
-        if (arr == null || fromIndex < 0 || fromIndex >= arr.length) {
+        if (arr.length < 0) {
             return -1;
         }
         for (int i = fromIndex; i < arr.length; i++){
@@ -100,11 +89,7 @@ public class ArrCharOps {
                 return i;
             }
         }
-        for (int j = 0; j< fromIndex; j++ ){
-            if (ch == charAt(arr, j)){
-                return j;
-            }
-        }
+       
         
         return -1;
     }
