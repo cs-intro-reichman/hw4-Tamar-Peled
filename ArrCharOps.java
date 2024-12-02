@@ -211,6 +211,8 @@ public class ArrCharOps {
             int limit = str1.length() < str2.length() ? str1.length() : str2.length();
 
             for (int i = 0; i < limit ; i++){
+                str1 = str1.toLowerCase();
+                str2 = str2.toLowerCase();
                 if (str1.charAt(i) != str2.charAt(i)) {
                     return str1.charAt(i)< str2.length() ? -1 : 1;
                 }
