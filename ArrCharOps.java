@@ -4,14 +4,17 @@ public class ArrCharOps {
     public static void main(String[] args) {
 
         //int index = Integer.parseInt(args[2]);
-        //char ch = args [1].charAt(0);
-        char [] array = args [0].toCharArray();
-        char [] array2 = args [1].toCharArray();
+        //char ch = args [0].charAt(0);
+        //int index = Integer.parseInt (args [1]);
+        //char [] array = args [0].toCharArray();
+        //char [] array2 = args [1].toCharArray()
 
 
-        System.out.println(concat(array, array2)+ "Look");
-        System.out.println(array + "lookkkkk");
-        System.out.println(array2 + "looookkkkk");
+       
+        char[] arr = "hamburger".toCharArray();
+
+
+
         
         
         String str = "clearly";
@@ -89,17 +92,17 @@ public class ArrCharOps {
     /** Same as indexOf(char[], char), but starts the search in the given index.
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
-        int index = 0;
+        if (arr.length == 0 || fromIndex < 0 || fromIndex >= arr.length) {
+            return -1;
+        }
         for (int i = fromIndex; i < arr.length; i++){
             if (ch == charAt(arr, i)){
-                index = i;
-                return index;
+                return i;
             }
         }
         for (int j = 0; j< fromIndex; j++ ){
             if (ch == charAt(arr, j)){
-                index = j;
-                return index;
+                return j;
             }
         }
         
