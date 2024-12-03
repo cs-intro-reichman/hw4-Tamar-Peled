@@ -32,9 +32,11 @@ public class KeywordsDetector {
                     
                 }if (MyString.contains(str, "leverage")){
                     System.out.println(sentences[i]);
-                }if (MyString.contains(str,"Paradigm" )) {
+                }if (MyString.contains(str,MyString.lowerCase("Paradigm") )) {
+                    System.out.println(sentences[i]);
                     
                 }if (MyString.contains(str, "transform")){
+                    System.out.println(sentences[i]);
                 }   
 
             
