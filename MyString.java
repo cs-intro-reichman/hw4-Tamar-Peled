@@ -33,12 +33,9 @@ public class MyString {
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
-    public static boolean contains(String str1, String str2){
-        
-        //str1 = lowerCase(str1);
-        //str2 = lowerCase(str2);
-        int j = 0;
-        
+    public static boolean contains(String str1, String str2){        
+    
+        int j = 0;        
 
         if (str2.length() > str1.length()){
             return false;
@@ -54,6 +51,7 @@ public class MyString {
                         
                     }
                 }else{
+                     // If the current sequence does not match, reset the matching process                     
                     i-= j; 
                     j = 0;
                 }

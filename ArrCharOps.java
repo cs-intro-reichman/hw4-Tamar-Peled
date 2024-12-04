@@ -126,9 +126,11 @@ public class ArrCharOps {
     public static char[] concat(char[] arr1, char[] arr2){
         char [] concatanation = new char [arr1.length + arr2.length];
         for (int i = 0; i < arr1.length; i++){
+             // Use the custom charAt method to get each character from arr1 and place it in the result array
             concatanation [i] += charAt(arr1, i);   
         }
         for (int j = 0; j < arr2.length; j++){
+            // Use the custom charAt method to get each character from arr2 and place it in the correct position
             concatanation [arr1.length + j] += charAt(arr2, j);
         }
 
@@ -141,8 +143,10 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
+        // The length of the new array is the difference between endIndex and beginIndex
         char [] subArray = new char[endIndex - beginIndex];
         for (int i = beginIndex; i < endIndex; i++){
+             // Calculate the index in the subArray and assign the corresponding character from the original array
             subArray [i-beginIndex] += charAt(arr, i);
             
         }
@@ -166,7 +170,9 @@ public class ArrCharOps {
             }
         
             for (int i = arr.length - 1; i >= 0; i--) {
+                // Multiply the character's value by the current power of 7 and add it to the hash code
                 hashCode += arr[i] * powerOf7;
+                // Update the power of 7 for the next iteration
                 powerOf7 *= 7; 
             }
         
@@ -204,7 +210,7 @@ public class ArrCharOps {
         if (str1.length() > str2.length()){
             return -2;
         }
-       
+            // Determine the minimum length between the two strings
             int limit = str1.length() < str2.length() ? str1.length() : str2.length();
 
             for (int i = 0; i < limit ; i++){

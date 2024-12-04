@@ -24,11 +24,14 @@ public class KeywordsDetector {
         
       
         for (int i = 0; i < sentences.length; i++){
+             // Convert the current sentence to lowercase for case-insensitive comparison
             String str = MyString.lowerCase(sentences[i]);
             for (int j = 0; j < keywords.length; j++){
                 String keyWord = MyString.lowerCase(keywords[j]);
+                 // Check if the current sentence contains the current keyword
                 if (MyString.contains(str, keyWord)) {
                     System.out.println(sentences[i]);
+                // Break out of the inner loop, as we only need to print the sentence once
                     break;
                     
                 }
