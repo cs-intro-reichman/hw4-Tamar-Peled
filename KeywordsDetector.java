@@ -25,21 +25,15 @@ public class KeywordsDetector {
       
         for (int i = 0; i < sentences.length; i++){
             String str = MyString.lowerCase(sentences[i]);
-                if (MyString.contains(str, "synergy")) {
-                    System.out.println (sentences[i]);
-                }if (MyString.contains(str, "disrupt")) {
-                    System.out.println(sentences[i]);
+            for (int j = 0; j < keywords.length; j++){
+                String keyWord = MyString.lowerCase(keywords[j]);
+                if (MyString.contains(str, keyWord)) {
+                    System.out.println(str);
+                    break;
                     
-                }if (MyString.contains(str, "leverage")){
-                    System.out.println(sentences[i]);
-                }if (MyString.contains(str,MyString.lowerCase("Paradigm") )) {
-                    System.out.println(sentences[i]);
-                    
-                }if (MyString.contains(str, "transform")){
-                    System.out.println(sentences[i]);
-                }   
-
+                }
             
+            }
         }
     }
 }
